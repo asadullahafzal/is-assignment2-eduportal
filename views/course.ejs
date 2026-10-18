@@ -15,7 +15,4 @@
 <% } else { %>
   <p>No course found.</p>
 <% } %>
-
-<p class="hint">SQLi (intermediate, error-based) target. Vulnerable-mode payload in <code>id</code>:
-<code>1 AND updatexml(1,concat(0x7e,(SELECT password FROM users LIMIT 1)),1)</code></p>
 <%- include('partials/footer') %>

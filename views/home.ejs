@@ -1,13 +1,10 @@
 <%- include('partials/header') %>
 <h1>Welcome to EduPortal</h1>
-<p>A small student portal used to demonstrate common web vulnerabilities and their fixes.</p>
+<p>Your campus hub for courses, announcements and your student profile.</p>
 <div class="grid">
-  <div class="card"><h3>Reflected XSS</h3><p>Try the <a href="/search">Search</a> box.</p></div>
-  <div class="card"><h3>Stored XSS</h3><p>Your <a href="/profile">Profile</a> bio and the <a href="/board">Board</a>.</p></div>
-  <div class="card"><h3>DOM XSS</h3><p>The <a href="/welcome">Welcome</a> page (reads the URL hash).</p></div>
-  <div class="card"><h3>CSRF</h3><p>Change email on <a href="/account">Account</a>.</p></div>
-  <div class="card"><h3>SQLi (easy)</h3><p>The <a href="/login">Login</a> form.</p></div>
-  <div class="card"><h3>SQLi (int/adv)</h3><p><a href="/course?id=1">Course lookup</a> &amp; <a href="/courses">Course search</a>.</p></div>
+  <div class="card"><h3>📚 Courses</h3><p>Browse the catalog and <a href="/courses">search courses</a> by name.</p></div>
+  <div class="card"><h3>💬 Board</h3><p>Read and post on the <a href="/board">student comment board</a>.</p></div>
+  <div class="card"><h3>👤 Your profile</h3><p><a href="/login">Sign in</a> to edit your bio and account details.</p></div>
+  <div class="card"><h3>🔎 Search</h3><p>Find pages across the portal from the <a href="/search">search page</a>.</p></div>
 </div>
-<p class="hint">Demo logins: <code>alice / alice123</code>, <code>admin / S3cr3t_Admin!2026</code></p>
 <%- include('partials/footer') %>
