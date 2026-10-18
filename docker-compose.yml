@@ -1,0 +1,20 @@
+# Spins up MySQL and loads the schema + seed data automatically.
+#   docker compose up -d
+# Then run the app on the host with:  npm run vuln   (or npm run safe)
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pw
+      MYSQL_DATABASE: eduportal
+      MYSQL_USER: eduportal
+      MYSQL_PASSWORD: eduportal_pw
+    ports:
+      - "3306:3306"
+    # seed-data.sql runs automatically the first time the data volume is empty.
+    volumes:
+      - ./seed-data.sql:/docker-entrypoint-initdb.d/01-seed.sql:ro
+      - eduportal_data:/var/lib/mysql
+
+volumes:
+  eduportal_data:
