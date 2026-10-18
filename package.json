@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "vuln": "cross-env MODE=vulnerable node server.js",
-    "safe": "cross-env MODE=safe node server.js"
+    "vuln": "cross-env MODE=vulnerable PORT=3000 node server.js",
+    "safe": "cross-env MODE=safe PORT=3001 node server.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",
