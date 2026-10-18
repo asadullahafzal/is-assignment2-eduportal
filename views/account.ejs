@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+<h1>Account settings</h1>
+<% if (done) { %><p class="ok">Email updated.</p><% } %>
+<p>Current email: <b><%= email %></b></p>
+
+<form method="post" action="/account/email" class="form">
+  <label>New email <input name="email" type="email" required></label>
+  <!-- In SAFE mode this hidden token is required and verified server-side.
+       In VULN mode the server ignores it, so a cross-site forged POST works. -->
+  <input type="hidden" name="csrf" value="<%= csrfToken %>">
+  <button type="submit">Update email</button>
+</form>
+
+<p class="hint">CSRF target. See <code>public/csrf-attack.html</code> — open it in the same
+browser while logged in; in vulnerable mode it silently changes your email.</p>
+<%- include('partials/footer') %>

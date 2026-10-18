@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+<h1>Welcome</h1>
+<p>This page greets you using the text after the <code>#</code> in the URL.</p>
+<div id="greeting" class="bio-box">Hello, guest!</div>
+
+<p class="hint">DOM XSS target. In vulnerable mode open:
+<code>/welcome#&lt;img src=x onerror=alert('dom-xss')&gt;</code></p>
+
+<!-- The server exposes only the mode; the DOM-XSS bug is purely client-side. -->
+<script>window.APP_MODE = "<%= mode %>";</script>
+<script src="/welcome.js"></script>
+<%- include('partials/footer') %>

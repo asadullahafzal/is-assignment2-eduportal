@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+<h1>Course search</h1>
+<form method="get" action="/courses" class="form inline-form">
+  <input name="s" placeholder="Search courses by name..." value="<%= s %>">
+  <button type="submit">Search</button>
+</form>
+
+<% if (error) { %><p class="error">DB error: <%= error %></p><% } %>
+<table class="tbl">
+  <thead><tr><th>ID</th><th>Name</th><th>Description</th></tr></thead>
+  <tbody>
+    <% rows.forEach(function (r) { %>
+      <tr><td><%= r.id %></td><td><%= r.name %></td><td><%= r.description %></td></tr>
+    <% }); %>
+  </tbody>
+</table>
+
+<p class="hint">SQLi (advanced, UNION-based) target. Full chain in <code>PAYLOADS.md</code>.
+First step in <code>s</code>: <code>%' UNION SELECT 1,2,3 -- -</code></p>
+<%- include('partials/footer') %>

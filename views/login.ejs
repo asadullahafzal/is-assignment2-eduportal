@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+<h1>Login</h1>
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+<form method="post" action="/login" class="form">
+  <label>Username <input name="username" autocomplete="off"></label>
+  <label>Password <input name="password" type="password" autocomplete="off"></label>
+  <button type="submit">Sign in</button>
+</form>
+<p class="hint">SQLi (easy) target. Vulnerable-mode bypass goes in the <b>username</b> field:
+<code>' OR '1'='1' -- </code> (leave password blank).</p>
+<%- include('partials/footer') %>

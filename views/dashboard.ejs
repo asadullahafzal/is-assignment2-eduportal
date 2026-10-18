@@ -1,0 +1,9 @@
+<%- include('partials/header') %>
+<h1>Dashboard</h1>
+<p>Signed in as <b><%= user.username %></b> (role: <%= user.role %>).</p>
+<ul>
+  <li><a href="/profile">Edit your profile</a> (stored XSS sink)</li>
+  <li><a href="/account">Account settings</a> (CSRF target)</li>
+  <li><a href="/board">Comment board</a></li>
+</ul>
+<%- include('partials/footer') %>
