@@ -1,0 +1,20 @@
+{
+  "name": "eduportal-security-demo",
+  "version": "1.0.0",
+  "description": "EduPortal - a full-stack app demonstrating XSS, CSRF and SQL Injection in a Vulnerable mode and their fixes in a Safe mode. For the Information Security practical assignment (lab use only).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "vuln": "cross-env MODE=vulnerable node server.js",
+    "safe": "cross-env MODE=safe node server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.11.0"
+  }
+}
